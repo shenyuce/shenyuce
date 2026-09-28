@@ -4,15 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#172338">
+  <meta name="robots" content="noindex,nofollow,noarchive">
   <title>神预测 · 研判中心</title>
   <style>
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; }
-    body { background: #f5f3ee; }
+    body { background: #f5f3ee; font-family: system-ui, -apple-system, "Microsoft YaHei", sans-serif; }
     iframe { display: block; width: 100%; height: 100vh; height: 100dvh; border: 0; background: #f5f3ee; }
+    .desktop-gate { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 24px;
+      color: #f8f3e7; background: radial-gradient(circle at 50% 0, #284367 0, #172338 48%, #0b1423 100%); }
+    .desktop-gate[hidden] { display: none; }
+    .desktop-gate p { margin: 0; padding: 30px 34px; border: 1px solid #b99a60; border-radius: 18px;
+      font-size: 18px; letter-spacing: .04em; text-align: center; }
   </style>
 </head>
 <body>
-  <iframe title="神预测研判中心" src="https://feichang.shenyuce.net/h5/#/pages/index/index" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <main class="desktop-gate" id="desktop-gate" hidden><p>请使用手机访问神预测</p></main>
+  <noscript>请启用 JavaScript 并使用手机访问。</noscript>
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var mobile = navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean'
+        ? navigator.userAgentData.mobile || /iPhone|iPod/i.test(ua)
+        : /iPhone|iPod|Android.*Mobile|Windows Phone|Mobile/i.test(ua);
+      if (!mobile) {
+        document.getElementById('desktop-gate').hidden = false;
+        return;
+      }
+      var frame = document.createElement('iframe');
+      frame.title = '神预测研判中心';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.src = 'https://feichang.shenyuce.net/h5/#/pages/index/index';
+      document.body.appendChild(frame);
+    }());
+  </script>
 </body>
 </html>
