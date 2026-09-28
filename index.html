@@ -20,18 +20,8 @@
 <body>
   <header>
     <span class="brand">神预测 · 研判中心</span>
-    <a class="open" id="open-site" href="https://feichang.shenyuce.net/h5/" target="_blank" rel="noopener noreferrer">独立打开 ↗</a>
+    <a class="open" href="https://feichang.shenyuce.net/h5/#/pages/index/index" target="_blank" rel="noopener noreferrer">独立打开 ↗</a>
   </header>
-  <iframe id="site" title="神预测研判中心" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-  <script>
-    (function () {
-      var defaultCode = '1e3e1a8afe9d3bba8b11532a8f3966d9';
-      var suppliedCode = new URLSearchParams(location.search).get('c') || '';
-      var code = /^[a-f0-9]{32}$/i.test(suppliedCode) ? suppliedCode.toLowerCase() : defaultCode;
-      var destination = 'https://feichang.shenyuce.net/go/?c=' + encodeURIComponent(code);
-      document.getElementById('site').src = destination;
-      document.getElementById('open-site').href = destination;
-    }());
-  </script>
+  <iframe title="神预测研判中心" src="https://feichang.shenyuce.net/h5/#/pages/index/index" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </body>
 </html>

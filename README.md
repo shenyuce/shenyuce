@@ -2,6 +2,6 @@
 
 此仓库只托管 GitHub Pages 入口页。页面展示神预测 H5，并提供“独立打开”按钮。
 
-访问 `https://shenyuce.github.io/shenyuce/` 使用平台推广码；也可使用 `?c=<32位推广码>` 打开指定推广入口。推广码会由主站验证，页面不会接受任意跳转网址。
+访问 `https://shenyuce.github.io/shenyuce/` 打开不带推广参数的普通首页。
 
 
