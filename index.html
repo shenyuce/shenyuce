@@ -23,6 +23,21 @@
   <noscript>请启用 JavaScript 并使用手机访问。</noscript>
   <script>
     (function () {
+      'use strict';
+      var appOrigin = 'https://feichang.shenyuce.net';
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('c')) {
+        var code = (params.get('c') || '').trim().toLowerCase();
+        if (!/^[a-f0-9]{32}$/.test(code)) {
+          var invalidGate = document.getElementById('desktop-gate');
+          invalidGate.querySelector('p').textContent = '商家码无效，请重新扫码。';
+          invalidGate.hidden = false;
+          return;
+        }
+        // The first-party API rechecks the merchant and resolves the live H5 target.
+        window.location.replace(appOrigin + '/api/promotion/open?code=' + encodeURIComponent(code));
+        return;
+      }
       var ua = navigator.userAgent || '';
       var mobile = navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean'
         ? navigator.userAgentData.mobile || /iPhone|iPod/i.test(ua)
@@ -34,7 +49,7 @@
       var frame = document.createElement('iframe');
       frame.title = '神预测研判中心';
       frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      frame.src = 'https://feichang.shenyuce.net/h5/#/pages/index/index';
+      frame.src = appOrigin + '/h5/#/pages/index/index';
       document.body.appendChild(frame);
     }());
   </script>
