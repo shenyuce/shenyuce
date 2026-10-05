@@ -26,8 +26,8 @@
       'use strict';
       var appOrigin = 'https://feichang.shenyuce.net';
       var params = new URLSearchParams(window.location.search);
-      if (params.has('c')) {
-        var code = (params.get('c') || '').trim().toLowerCase();
+      if (params.has('C') || params.has('c')) {
+        var code = (params.get('C') || params.get('c') || '').trim().toLowerCase();
         if (!/^[a-f0-9]{32}$/.test(code)) {
           var invalidGate = document.getElementById('desktop-gate');
           invalidGate.querySelector('p').textContent = '商家码无效，请重新扫码。';
